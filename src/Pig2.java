@@ -30,20 +30,34 @@ public class Pig2 extends JFrame{
                     Color colour = new Color(pig.getRGB(x, y));
                     int Y = (int) (0.2126 * colour.getRed() + 0.7152 * colour.getGreen() + 0.0722 * colour.getBlue());
                     pig.setRGB(x, y, new Color(Y, Y, Y).getRGB());
-                    BufferedImage pig2 = pig;
                 }
             }
         }
     });
 
     JButton b2 = new JButton("저장하기");
-    b2.setBounds(200, 150, 100, 30);
+    b2.setBounds(300, 150, 100, 30);
     b2.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
-            BufferedImage pig2 = null;
+
+            BufferedImage pig = null;
             try {
-                ImageIO.write(pig2, "jpg", new File("C:\\Users\\USER\\Documents\\gom2.jpg"));
+                pig = ImageIO.read(new File("C:\\\\Users\\\\USER\\\\Documents\\\\gom.jpg"));
+            } catch (IOException e1) {
+                System.out.println(e1.toString());
+            }
+
+            for (int y = 0; y < pig.getHeight(); y++) {
+                for (int x = 0; x < pig.getWidth(); x++) {
+                    Color colour = new Color(pig.getRGB(x, y));
+                    int Y = (int) (0.2126 * colour.getRed() + 0.7152 * colour.getGreen() + 0.0722 * colour.getBlue());
+                    pig.setRGB(x, y, new Color(Y, Y, Y).getRGB());
+                }
+            }
+
+            try {
+                ImageIO.write(pig, "jpg", new File("C:\\Users\\USER\\Documents\\gray.jpg"));
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
