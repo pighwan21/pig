@@ -13,8 +13,8 @@ public class Pig2 extends JFrame{
     Pig2() {
 
     // Button b1
-    JButton b1 = new JButton("Pig~");
-    b1.setBounds(100, 150, 100, 30);
+    JButton b1 = new JButton("[그레이 스케일]");
+    b1.setBounds(100, 150, 200, 30);
     b1.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -35,7 +35,7 @@ public class Pig2 extends JFrame{
         }
     });
 
-    JButton b2 = new JButton("저장하기");
+    JButton b2 = new JButton("[저장하기]");
     b2.setBounds(300, 150, 100, 30);
     b2.addActionListener(new ActionListener() {
         @Override
